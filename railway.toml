@@ -1,0 +1,15 @@
+# Railway service config for the OmniVoice TTS API.
+# Deploy from this repo (Dockerfile builder). Health check hits /health.
+# NOTE: the model needs several GB of RAM (it loads ~5 GB of weights).
+# Railway's default small instance may OOM; if the service crashes on the
+# first /generate, raise the service memory in the Railway dashboard.
+
+[build]
+builder = "dockerfile"
+dockerfilePath = "Dockerfile"
+
+[deploy]
+healthcheckPath = "/health"
+healthcheckTimeout = 300
+restartPolicyType = "on_failure"
+restartPolicyMaxRetries = 3

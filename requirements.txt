@@ -1,0 +1,8 @@
+# OmniVoice Persian TTS API — dependencies.
+# torch/torchaudio are installed from the PyTorch CPU index in the Dockerfile
+# BEFORE this file, so pip sees them as satisfied and does not pull CUDA builds.
+fastapi>=0.110
+uvicorn>=0.29
+python-multipart>=0.0.9
+soundfile>=0.12
+omnivoice>=0.2.0
